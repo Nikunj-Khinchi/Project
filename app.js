@@ -1,9 +1,7 @@
-
 const express = require("express");
 const app = express();
 const request = require("request");
 const mongoose = require("mongoose");
-
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
@@ -84,14 +82,12 @@ app.get("/", (req, res) => {
       Ticker.find({})
         .then((itemss) => {
           console.log();
-        let item = itemss.sort(itemss.buy)
+          let item = itemss.sort(itemss.buy);
           res.render("pages/index.ejs", { result: item });
         })
         .catch((err) => {
           console.log(err);
         });
-
-    
     }
   });
 });
